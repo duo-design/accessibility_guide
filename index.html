@@ -1,0 +1,526 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      window.setTimeout(() =>  { window.location.reload() }, 2000);
+    </script>
+
+    <style type="text/css">
+      :root {
+        color: #000;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      main {
+        padding-top: 1.5rem;
+        padding-bottom: 2rem;
+      }
+
+      h1, h2, h3, h4 {
+        margin-top: 1.5em;
+        margin-bottom: 0;
+      }
+
+      h2 {
+        border-top: 2px solid black;
+        margin-top: 1em;
+        padding-top: 0.5em;
+      }
+
+      h1:first-child, h2:first-child, h3:first-child, h4:first-child {
+        margin-top: 0;
+      }
+
+      h1 { font-size: 2.5rem }
+      h2 { font-size: 2rem }
+      h3 { font-size: 1.5rem }
+      h4 { font-size: 1rem }
+
+
+      main {
+        --content-size: 40rem;
+        --note-size: 30rem;
+        width: calc(var(--content-size) + var(--note-size));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: var(--content-size) var(--note-size);
+        grid-gap: 0 3rem;
+      }
+
+      main > .document-header,
+      main > h2 {
+        grid-column: 1 / -1;
+        width: 100%;
+      }
+
+      main > * {
+        grid-column: 1;
+        margin-left: 0;
+      }
+
+      main > aside {
+        grid-column: 2;
+        margin-left: 0;
+      }
+
+      table {
+        border-spacing: 0;
+        border-collapse: collapse;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      td,
+      th {
+        padding: 0.5rem;
+        font-size: 14px;
+        text-align: left;
+        border: 1px solid #999;
+        background-color: #fff;
+      }
+
+      td {
+        background-color: #fee;
+      }
+
+      td.minimum,
+      .minimum ~ td {
+        background-color: #def;
+      }
+
+      td.better,
+      .better ~ td {
+        background-color: #cfe;
+      }
+
+      td.limit,
+      .limit ~ td {
+        background-color: #fee;
+      }
+
+      li {
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1 class="document-header">
+        Duo Color Palette Accessibility Requirements
+      </h1>
+
+      <p style="background-color: #fee; padding: 1rem 2rem; font-size: 1.2rem; justify-self: start;">
+        This is a draft.
+      </p>
+
+      <h2>
+        Introduction
+      </h2>
+
+      <div>
+        <h3>
+          What this document is
+        </h3>
+
+        <ul>
+          <li>
+            This document aims to be a complete list of the requirements Duo will use to check if a color palette meets Duo's accessibility needs.
+          </li>
+
+          <li>
+            This document is a combination of current laws, standards, new guidelines that might be incorporated into future standards, and scientific research into how to create highly legible UI's for people with a wide range of disabilities.
+          </li>
+
+          <li>
+            Unless otherwise mentioned, the items listed in this document are requirements, not nice to haves.
+          </li>
+        </ul>
+
+        <h3>
+          What this document is not
+        </h3>
+
+        <ul>
+          <li>
+            This is not comprehensive list of all accessibility guidelines and laws related to color. We have summarized and condensed many rules and guidelines to the essentials. If these requirements are passed, the rest should be able to be met.
+          </li>
+          <li>
+            This is not guide for how to design accessible components using colors.
+          </li>
+        </ul>
+      </div>
+
+      <aside>
+        <h3>
+          Motivation
+        </h3>
+
+        <p>
+          In the past we have tried iterate on color palettes with quick informal accessibility reviews. Over time some nasty edge cases were found that made us rethink our previous, simpler guidelines. We have taken those experiences and condensed them into a clear set of requirements, so new color palettes can benefit from our experiences and so important edge cases can be addressed from the beginning.
+        </p>
+      </aside>
+
+      <h2>
+        Contrast
+      </h2>
+
+      <div>
+        <p>
+          These requirements are to ensure that text is readable and graphics are visible for people with a wide range of visual acuity and color perception. These measurements can not be used to tell how different objects look from one another based on color. <br> <a href="#distinct-colors">See note on measuring color differences.</a>
+        </p>
+
+        <p>
+          All contrast requirements must be met against all background colors content will appear with in all themes. Some people with low vision need to use light mode because it makes it easier for them to read text. Others may need to use dark mode because they are sensitive to bright lights, like people who get migraines. Special accessibility themes create more work for designers and engineers. Some users don't have a choice about what theme an application uses because they are on a public device, or they have to pick one global setting for another piece of software to work for them. This is why all themes must be accessible.
+        </p>
+      </div>
+
+      <aside>
+        <h4 id="distinct-colors">
+          Can't we use contrast measurements to measure color differences?
+        </h4>
+
+        <p>
+          In many cases two colors need to look different. Links need to look different from plain text. Unfortunately, WCAG 2 contrast doesn't match human perception, and APCA measures how much contrast an object has against it's background.
+        </p>
+
+        <p>
+          There is no good empirical measurement for how different one color looks from another.
+        </p>
+
+        <p>
+          A good measurement would be very hard to create because perceived color is context dependent. Two colors that look similar next to each other can look different when placed in different parts of a page, and visa versa. Even worse, two objects with the same actual color can have different perceived colors depending on context, and visa versa.
+        </p>
+      </aside>
+
+      <h3>
+        WCAG 2 AA contrast
+      </h3>
+
+      <div>
+        <p>
+          These requirements help us meet legal our customer's legal needs. Due to differences in the way contrast is calculated, we must meet these as well as APCA requirements. APCA alone doesn't ensure legal compliance.
+        </p>
+
+        <table>
+          <tr>
+            <th></th>
+            <th>3:1</th>
+            <th>4.5:1</th>
+          </tr>
+          <tr>
+            <th>
+              Medium and small text
+            </th>
+            <td data-wcag="3:1"></td>
+            <td data-wcag="4.5:1" class="minimum">Minimum</td>
+          </tr>
+          <tr>
+            <th>
+              Large text
+            </th>
+            <td data-wcag="3:1" class="minimum">Minimum</td>
+            <td data-wcag="4.5:1"></td>
+          </tr>
+          <tr>
+            <th>
+              Non-text components
+              <br>
+              (icons, buttons edges, input borders, etc)
+            </th>
+            <td data-wcag="3:1" class="minimum">Minimum</td>
+            <td data-wcag="4.5:1"></td>
+          </tr>
+        </table>
+      </div>
+
+      <aside>
+        <h4>
+          What about WCAG 2 AAA contrast?
+        </h4>
+        <p>
+          Previously we used WCAG 2 AAA when high legibility was important. However, the WCAG 2 contrast algorithm is flawed. Even at AAA levels, some hard to read colors pass. APCA provides a better way to set higher legibility requirements and helps us filter out hard to read color pairs that pass WCAG 2 AA better than AAA ever could.
+        </p>
+
+        <h4>
+          What about Bridge-PCA?
+        </h4>
+
+        <p>
+          Bridge-PCA is an attempt to merge WCAG 2 and APCA into one measurement. We don't use it because we want to be able to be able to make decisions based on current legal requirements, things that might become legal requirements in the future, and best practices. One combined measurement makes it harder to make certain trade offs. 
+        </p>
+      </aside>
+
+      <h3>
+        APCA contrast
+      </h3>
+
+      <div>
+        <p>
+          These are contrast measurements we have to meet or exceed to ensure great legibility. These requirements will also reduce the chances that we need to update our palette if/when WCAG and legal standards start using a better color contrast measurement.
+        </p>
+
+        <table>
+          <tr>
+            <th></th>
+            <th>Lc 15</th>
+            <th>Lc 30</th>
+            <th>Lc 45</th>
+            <th>Lc 60</th>
+            <th>Lc 75</th>
+            <th>Lc 90</th>
+          </tr>
+
+          <tr>
+            <th>
+              Block of plain text
+            </th>
+            <td data-lc="15"></td>
+            <td data-lc="30"></td>
+            <td data-lc="45"></td>
+            <td data-lc="60"></td>
+            <td data-lc="75"></td>
+            <td data-lc="90" class="minimum">Minimum</td>
+          </tr>
+
+          <tr>
+            <th>
+              Shorter text
+              <br>
+              (labels, inputs, etc)
+            </th>
+            <td data-lc="15"></td>
+            <td data-lc="30"></td>
+            <td data-lc="45"></td>
+            <td data-lc="60"></td>
+            <td data-lc="75" class="minimum">Minimum</td>
+            <td data-lc="90" class="better">Better</td>
+          </tr>
+
+          <tr>
+            <th>
+              Headings
+            </th>
+            <td data-lc="15"></td>
+            <td data-lc="30"></td>
+            <td data-lc="45"></td>
+            <td data-lc="60"></td>
+            <td data-lc="75" class="minimum">Minimum</td>
+            <td data-lc="90" class="limit">Do not exceed</td>
+          </tr>
+
+          <tr>
+            <th>
+              Link text
+            </th>
+            <td data-lc="15"></td>
+            <td data-lc="30"></td>
+            <td data-lc="45"></td>
+            <td data-lc="60"></td>
+            <td data-lc="75" class="minimum">Minimum</td>
+            <td data-lc="90" class="limit"><a href="#link-contrast">See note on links</a></td>
+          </tr>
+
+          <tr>
+            <th>
+              Button text
+            </th>
+            <td data-lc="15"></td>
+            <td data-lc="30"></td>
+            <td data-lc="45"></td>
+            <td data-lc="60"></td>
+            <td data-lc="75" class="minimum">Minimum</td>
+            <td data-lc="90" class="better">Better</td>
+          </tr>
+
+          <tr>
+            <th>
+              Data visualizations
+            </th>
+            <td data-lc="15"></td>
+            <td data-lc="30"></td>
+            <td data-lc="45" class="minimum">Minimum</td>
+            <td data-lc="60" class="better">Better</td>
+            <td data-lc="75"></td>
+            <td data-lc="90"></td>
+          </tr>
+
+          <tr>
+            <th>
+              Button and input borders
+              <br>
+              <a href="#buttons">See section on buttons</a>
+            </th>
+            <td data-lc="15"></td>
+            <td data-lc="30"></td>
+            <td data-lc="45" class="minimum">Minimum</td>
+            <td data-lc="60" class="better">Better</td>
+            <td data-lc="75"></td>
+            <td data-lc="90"></td>
+          </tr>
+
+          <tr>
+            <th>
+              Button fill
+              <br>
+              <a href="#buttons">See section on buttons</a>
+            </th>
+            <td data-lc="15"></td>
+            <td data-lc="30" class="minimum">Minimum</td>
+            <td data-lc="45"></td>
+            <td data-lc="60" class="better">Better</td>
+            <td data-lc="75"></td>
+            <td data-lc="90"></td>
+          </tr>
+
+          <tr>
+            <th>
+              Disabled input, button and placeholder text
+            </th>
+            <td data-lc="15"></td>
+            <td data-lc="30" class="minimum">Minimum</td>
+            <td data-lc="45" class="better">Better</td>
+            <td data-lc="60"></td>
+            <td data-lc="75"></td>
+            <td data-lc="90"></td>
+          </tr>
+
+          <tr>
+            <th>
+              Section divider lines
+            </th>
+            <td data-lc="15" class="minimum">Minimum</td>
+            <td data-lc="30"></td>
+            <td data-lc="45" class="better">Better</td>
+            <td data-lc="60"></td>
+            <td data-lc="75"></td>
+            <td data-lc="90"></td>
+          </tr>
+
+          <tr>
+            <th>
+              Elevations
+            </th>
+            <td data-lc="15" class="minimum">Minimum</td>
+            <td data-lc="30" class="better">Better</td>
+            <td data-lc="45"></td>
+            <td data-lc="60"></td>
+            <td data-lc="75"></td>
+            <td data-lc="90"></td>
+          </tr>
+        </table>
+      </div>
+
+      <aside>
+        <h4>
+          What is Lc?
+        </h4>
+
+        <p>
+          "Lightness contrast" or Lc is the unit used by APCA to measure the perceived contrast levels. Light text against a dark background gets negative value, but you can ignore the negative sign when checking if a color passes in this table.
+        </p>
+
+        <h4>
+          Doesn't APCA include size/weight requirements?
+        </h4>
+
+        <p>
+          Yes, APCA's full recommendations also factor element size/weight. Our requirements factor those in. If a color palette can pass these contrast levels for the given components, we are confident that the palette has the flexibility we need. Rules to ensure components have the right size/weight to pass APCA's full recommendation can come later.
+        </p>
+      </aside>
+
+      <h2>
+        Data Visualizations
+      </h2>
+
+      <div>
+        <ol>
+          <li>
+            There are at least 5 colors that can be used in data visualizations to separate different categories. 
+          </li>
+          <li>
+            All categorical colors must have an obviously distinct value, hue and/or saturation for people with full color vision as well as those with deuteranopia, protanopia, and tritanopia.
+          </li>
+          <li>
+            None of category colors are confusable with the colors of the most common interactive elements (links, primary and secondary buttons, etc) by people with full color vision as well as those with deuteranopia, protanopia, and tritanopia. <br> <a href="#distinct-colors">See note on measuring color differences.</a>
+          </li>
+        </ol>
+      </div>
+
+      <h2>
+        Buttons
+      </h2>
+
+      <div id="buttons">
+        <ol>
+          <li>
+            <p>
+              Whatever visually element indicates "this is a button" needs to pass the relevant WCAG 2 and APCA contrast requirements.
+            </p>
+            <p>
+              Some buttons look like buttons because of the border around them. Other buttons are defined visually by their fill color. Because buttons visually defined by their fill have a thicker, easier to see visual indicator, they have different contrast requirement. The finer line of a button border needs more contrast to be visible.
+            </p>
+          </li>
+          <li>
+            The text of a button always needs to meet a contrast requirement when compared the background inside the button. If the button contains a gradient, the text needs to pass contrast rules against both extremes of the gradient.
+          </li>
+          <li>
+            There must be support for at least 4 semantically distinct button colors: primary and secondary (often grey and blue), as well as approve and deny (often green and red).
+          </li>
+          <li>
+            All semantically distinct button colors must have an obviously distinct value, hue and/or saturation for people with full color vision as well as those with deuteranopia, protanopia, and tritanopia. <br> <a href="#distinct-colors">See note on measuring color differences.</a>
+          </li>
+        </ol>
+      </div>
+
+      <aside>
+        <h4>
+          What does "semantically distinct" mean?
+        </h4>
+
+        <p>
+          "Semantically distinct" colors are when colors are used to communicate some meaning or relationship. We often make "Save", "Accept", "Next" and similar primary buttons a distinct to make it easier for people to quickly identify buttons with a similar purpose: "this is the primary action".
+        </p>
+
+        <p>
+          If there are buttons on different parts of a page or on different pages that have different colors for purely aesthetic reasons, it is okay if they look the same to some people and different to others. However, imagine we have a line of buttons next to one another, each with a unique color. Each color might not have a specific semantic meaning for the given button, but we do need them to look different for all people. Users would assume different things about the buttons if they were all different colors versus if only some appeared to have the same color.
+        </p>
+
+        <p>
+          Any times color is used to communicated semantics, we want the semantics to be the same for everyone, regardless of their color vision.
+        </p>
+      </aside>
+      
+      <h2>
+        Link text
+      </h2>
+
+      <div>
+        <ol>
+          <li>
+            Link text must have an obviously distinct hue and/or saturation when compared to plain text for people with full color vision as well as those with deuteranopia, protanopia, and tritanopia. <br> <a href="#distinct-colors">See note on measuring color differences.</a>
+          </li>
+        </ol>
+      </div>
+
+      <aside>
+        <h3 id="link-contrast">
+          Link contrast complications
+        </h3>
+
+        <p>
+          While links don't have a maximum contrast ratio, a balance must be struck between having great contrast against the background for readability, but a difference from plain text to make them look obviously different. These two requirements are often in conflict, and some hues are especially difficult to get to pass both requirements in light or dark themes.
+        </p>
+      </aside>
+
+      <h2>
+        Recommended tools
+      </h2>
+
+      <p>
+        TODO: fill in recommended tools for measuring APCA contrast and simulating color blindness because many simulators are inaccurate in meaningful ways.
+      </p> 
+    </main>
+  </body>
+</html>
