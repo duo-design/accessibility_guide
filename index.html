@@ -1,9 +1,5 @@
 <html>
   <head>
-    <script type="text/javascript">
-      window.setTimeout(() =>  { window.location.reload() }, 2000);
-    </script>
-
     <style type="text/css">
       :root {
         color: #000;
@@ -37,15 +33,19 @@
       h3 { font-size: 1.5rem }
       h4 { font-size: 1rem }
 
+      p, ul, ol {
+        max-width: 35rem;
+      }
 
       main {
-        --content-size: 40rem;
-        --note-size: 30rem;
-        width: calc(var(--content-size) + var(--note-size));
+        --content-size: 35rem;
+        --note-size: 25rem;
+        --gap: 2rem;
+        width: calc(var(--content-size) + var(--note-size) + var(--gap));
         margin: 0 auto;
         display: grid;
         grid-template-columns: var(--content-size) var(--note-size);
-        grid-gap: 0 3rem;
+        grid-gap: 0 var(--gap);
       }
 
       main > .document-header,
