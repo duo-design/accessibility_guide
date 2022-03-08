@@ -132,7 +132,7 @@
           </li>
 
           <li>
-            This document is a combination of current laws, standards, new guidelines that might be incorporated into future standards, and scientific research into how to create highly legible UI's for people with a wide range of disabilities.
+            This document is a combination of current laws, standards, new guidelines that might be incorporated into future standards, industry best practices, and scientific research into how to create highly legible UI's for people with a wide range of disabilities.
           </li>
 
           <li>
@@ -146,7 +146,7 @@
 
         <ul>
           <li>
-            This is not comprehensive list of all accessibility guidelines and laws related to color. We have summarized and condensed many rules and guidelines to the essentials. If these requirements are passed, the rest should be able to be met.
+            This is not comprehensive list of all accessibility guidelines and laws related to color. We have summarized and condensed many rules and guidelines to the essentials. If these core requirements can be met, the rest should be able to be met as well.
           </li>
           <li>
             This is not guide for how to design accessible components using colors.
@@ -160,7 +160,7 @@
         </h3>
 
         <p>
-          In the past we have tried iterate on color palettes with quick informal accessibility reviews. Over time some nasty edge cases were found that made us rethink our previous, simpler guidelines. We have taken those experiences and condensed them into a clear set of requirements, so new color palettes can benefit from our experiences and so important edge cases can be addressed from the beginning.
+          In the past we have tried iterate on color palettes with quick informal accessibility reviews. Over time some nasty edge cases were found that were hard to accommodate by reworking existing palettes. We have taken those experiences and condensed them into this set of requirements. We want a color palette that can not only create designs that pass legal requirements, but one that can hopefully create designs with a great user experience for all sighted people.
         </p>
       </aside>
 
@@ -174,7 +174,7 @@
         </p>
 
         <p>
-          All contrast requirements must be met against all background colors content will appear with in all themes. Some people with low vision need to use light mode because it makes it easier for them to read text. Others may need to use dark mode because they are sensitive to bright lights, like people who get migraines. Special accessibility themes create more work for designers and engineers. Some users don't have a choice about what theme an application uses because they are on a public device, or they have to pick one global setting for another piece of software to work for them. This is why all themes must be accessible.
+          All contrast requirements must be met against all background a color content will appear against in all themes. This is because some people with low vision need to use light mode as brighter backgrounds make it easier for them to read text. Others may need to use dark mode because they are sensitive to bright lights. Special accessibility themes are not viable because they create more work for designers and engineers, and some users don't have a choice about what theme an application uses because they are on a public device, or they have to pick one global setting for another piece of software to work for them.
         </p>
       </div>
 
@@ -184,15 +184,20 @@
         </h4>
 
         <p>
-          In many cases two colors need to look different. Links need to look different from plain text. Unfortunately, WCAG 2 contrast doesn't match human perception, and APCA measures how much contrast an object has against it's background.
-        </p>
-
-        <p>
-          There is no good empirical measurement for how different one color looks from another.
+          In many cases two colors need to look different. For example, links need to look different from plain text. Unfortunately, WCAG 2 contrast doesn't match human perception, and APCA measures how much contrast an object has against it's background. There is no good empirical measurement for how different one color looks from another.
         </p>
 
         <p>
           A good measurement would be very hard to create because perceived color is context dependent. Two colors that look similar next to each other can look different when placed in different parts of a page, and visa versa. Even worse, two objects with the same actual color can have different perceived colors depending on context, and visa versa.
+        </p>
+
+
+        <h4 id="wcag-3">
+          What about WCAG 3?
+        </h4>
+
+        <p>
+          Some blog posts, tweets and tools incorrectly mention "WCAG 3 requirements". WCAG 3 is still being written, it isn't an adopted standard. As of the writing of this document, the published draft of WCAG 3 doesn't contain any requirements, only initial thoughts on how WCAG 3 will be structured. APCA has been proposed as a measurement that could be used by WCAG 3, but APCA is still in beta and we don't know if it will be adopted by WCAG3 and how the measurements might be used by the standard.
         </p>
       </aside>
 
@@ -206,7 +211,7 @@
         </p>
 
         <p>
-          Disabled text has no contrast requirements.
+          Disabled text has no contrast requirements under WCAG 2, nor do logos.
         </p>
 
         <table>
@@ -246,7 +251,7 @@
           What about WCAG 2 AAA contrast?
         </h4>
         <p>
-          Previously we used WCAG 2 AAA when high legibility was important. However, the WCAG 2 contrast algorithm is flawed. Even at AAA levels, some hard to read colors pass. APCA provides a better way to set higher legibility requirements and helps us filter out hard to read color pairs that pass WCAG 2 AA better than AAA ever could.
+          Previously we used WCAG 2 AAA when high legibility was important. However, the WCAG 2 contrast algorithm is flawed. Even at AAA levels, some hard to read colors pass. APCA provides a better way to set higher legibility requirements and helps us filter out hard to read color pairs that pass WCAG 2 AA.
         </p>
 
         <h4>
@@ -254,7 +259,7 @@
         </h4>
 
         <p>
-          Bridge-PCA is an attempt to merge WCAG 2 and APCA into one measurement. We don't use it because we want to be able to be able to make decisions based on current legal requirements, things that might become legal requirements in the future, and best practices. One combined measurement makes it harder to make certain trade offs. 
+          Bridge-PCA is an attempt to merge WCAG 2 and APCA into one measurement. We don't use it because we want to be able to be able to make trade-off decisions based on current legal requirements, things that might become legal requirements in the future, and best practices. One combined measurement makes it harder discern the difference between those three things.
         </p>
       </aside>
 
@@ -428,6 +433,14 @@
         </p>
 
         <h4>
+          Why these components and values?
+        </h4>
+
+        <p>
+          The components listed are illustrative of the most common use cases and those that past designs have struggled with the most. Some of values listed are the higher levels recommended for the best readability, rather than the bare minimums. Long term it is easier to create a color palette now that supports the highest levels of contrast than it is to create a palette that barely passes the minimums and needs to be extend in the future.
+        </p>
+
+        <h4>
           Doesn't APCA include size/weight requirements?
         </h4>
 
@@ -443,13 +456,13 @@
       <div>
         <ol>
           <li>
-            There are at least 5 colors that can be used in data visualizations to separate different categories. 
+            There are at least 5 colors that can be used in data visualizations to separate different categories. Support for more colors is good.
           </li>
           <li>
-            All categorical colors must have an obviously distinct value, hue and/or saturation for people with full color vision as well as those with deuteranopia, protanopia, and tritanopia.
+            All categorical colors must have an obviously distinct value, hue and/or saturation for people with full color vision as well as those with deuteranopia, protanopia, and tritanopia. <br> <a href="#distinct-colors">See note on measuring color differences.</a>
           </li>
           <li>
-            None of category colors are confusable with the colors of the most common interactive elements (links, primary and secondary buttons, etc) by people with full color vision as well as those with deuteranopia, protanopia, and tritanopia. <br> <a href="#distinct-colors">See note on measuring color differences.</a>
+            None of category colors could be confused with the colors of the most common interactive elements (links, primary and secondary buttons, etc) by people with full color vision as well as those with deuteranopia, protanopia, and tritanopia.
           </li>
         </ol>
       </div>
@@ -465,11 +478,11 @@
               Whatever visually element indicates "this is a button" needs to pass the relevant WCAG 2 and APCA contrast requirements.
             </p>
             <p>
-              Some buttons look like buttons because of the border around them. Other buttons are defined visually by their fill color. Because buttons visually defined by their fill have a thicker, easier to see visual indicator, they have different contrast requirement. The finer line of a button border needs more contrast to be visible.
+              Some buttons look like buttons because of the border around them. Other buttons are defined visually by their fill color. These two have different contrast requirements because a thin border is harder to see than a solid colored block.
             </p>
           </li>
           <li>
-            The text of a button always needs to meet a contrast requirement when compared the background inside the button. If the button contains a gradient, the text needs to pass contrast rules against both extremes of the gradient.
+            The text of a button always needs to meet the relevant contrast requirement when compared the background inside the button. If the button contains a gradient, the text needs to pass contrast rules against all colors in the gradient.
           </li>
           <li>
             There must be support for at least 4 semantically distinct button colors: primary and secondary (often grey and blue), as well as approve and deny (often green and red).
@@ -486,15 +499,19 @@
         </h4>
 
         <p>
-          "Semantically distinct" colors are when colors are used to communicate some meaning or relationship. We often make "Save", "Accept", "Next" and similar primary buttons a distinct to make it easier for people to quickly identify buttons with a similar purpose: "this is the primary action".
+          "Semantically distinct" colors are colors where the hue or the fact that they look different from other buttons communicates something about what they do. Any time color is used to communicated semantics, we want the semantics to be the same for everyone, regardless of their color vision.
         </p>
 
         <p>
-          If there are buttons on different parts of a page or on different pages that have different colors for purely aesthetic reasons, it is okay if they look the same to some people and different to others. However, imagine we have a line of buttons next to one another, each with a unique color. Each color might not have a specific semantic meaning for the given button, but we do need them to look different for all people. Users would assume different things about the buttons if they were all different colors versus if only some appeared to have the same color.
+          We often make "Save", "Accept", "Next" and similar primary buttons a distinct color to make it easier for people to quickly identify buttons with a similar purpose: "this is the primary action".
         </p>
 
         <p>
-          Any times color is used to communicated semantics, we want the semantics to be the same for everyone, regardless of their color vision.
+          If there are buttons on separate parts of a page or on different pages that have distinct colors, it could be okay if they look the same to some people as long as being unable to distinguish the colors doesn't change the usability of the application. Them being different colors has no semantic meaning, it is just aesthetics.
+        </p>
+
+        <p>
+          However, imagine we have a line of buttons next to one another, each with a unique color. Each color might not have a specific semantic meaning, but we do need them to look different for all people. Users would assume different things about the relationship between buttons in a line if they were all different colors versus if only some appeared to have the same color.
         </p>
       </aside>
       
@@ -516,7 +533,7 @@
         </h3>
 
         <p>
-          While links don't have a maximum contrast ratio, a balance must be struck between having great contrast against the background for readability, but a difference from plain text to make them look obviously different. These two requirements are often in conflict, and some hues are especially difficult to get to pass both requirements in light or dark themes.
+          While links don't have a maximum contrast ratio, a balance must be struck between having great contrast against the background for readability and having a visible difference from normal body text for people with and without color vision deficiencies. These two requirements are often in conflict, and some hues are especially difficult to get to pass both requirements in light or dark themes.
         </p>
       </aside>
 
