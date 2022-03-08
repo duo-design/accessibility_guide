@@ -541,9 +541,65 @@
         Recommended tools
       </h2>
 
+      <h3>
+        WCAG 2 contrast tools
+      </h3>
+
       <p>
-        TODO: fill in recommended tools for measuring APCA contrast and simulating color blindness because many simulators are inaccurate in meaningful ways.
+        Every plugin and tool we've tested measures WCAG 2 contrast correctly. WCAG 2 contrast is well established and the math is relatively simple. Use whatever ones you prefer.
       </p> 
+
+      <h3>
+        APCA contrast tools
+      </h3>
+
+      <p>
+        Because APCA is under active development, some tools use outdated versions of the measurement, and any 3rd party tools we recommend now could become dated later. For critical tasks, <a href="https://www.myndex.com/apca/">the tool the creator of APCA hosts</a> should be considered the source of truth until the measurement is standardized. Any Figma plugin that matches the values found using that tool is okay.
+      </p>
+
+      <p>
+        Note: APCA differentiates between the background and foreground (usually text) colors. Make sure your colors are in the correct fields as swapping them will alter the measured contrast.
+      </p>
+
+      <h3>
+        Color vision simulators
+      </h3>
+
+      <div>
+        <p>
+          <a href="https://daltonlens.org/#software">DaltonLens for MacOS and Windows</a> is simulator that passes our accuracy requirements. To use it: grab a screen region, use the "DaltonLens Controls" window to select "Daltonize", check "Only simulate color vision deficiency", select the form of color blindess you wish to simulate, and make sure the severity is set to all the way up to 1.00.
+        </p>
+
+        <p>
+          <a href="https://developer.chrome.com/blog/new-in-devtools-83/#vision-deficiencies">Chrome has simulators built into their dev tools</a> that will simulate the three most common forms of color vision deficiencies for whatever page you are looking at. The model they use is good enough for spot checking designs.
+        </p>
+
+        <p>
+          We are actively trying to find a good Figma plugin. So far every one tested uses inaccurate models.
+        </p>
+      </div>
+
+      <aside>
+        <h4>
+          Which forms of color blindness should we test?
+        </h4>
+
+        <p>
+          We only recommend testing for dichromacy (protanopia, deuteranopia and tritanopia), which is when someone can't see one of the primary colors. Those three cover the needs of the vast majority of people with color vision deficiencies.
+        </p>
+
+        <p>
+          You do not need to test for anomalous trichromacy (protanomaly, deuteranomaly and tritanomaly) as these are just less severe versions of dichromacy. Monochromacy isn't worth simulating for general design work. It comes a few different forms, is often accompanied by other severe visual disabilities, is misrepresented by most simulators (you can't just convert a design to greyscale), and there is little research into valid simulation techniques due to the rarity. Monochromacy can be accommodated with other design choices.
+        </p>
+
+        <h4>
+          How do we validate color vision simulators?
+        </h4>
+
+        <p>
+          We only recommend using simulators that use models based on peer reviewed research and validation with real people. <a href="https://daltonlens.org/opensource-cvd-simulation/">Currently the Brettel (1997) and Vienot (1999) models appear to be the best models available</a>. For tritanopia Brettel is preferred. For deuteranopia and protanopia Vienot is preferred. Simulators using the Machado (2009) model should be okay for spot checking designs, but some informal testing suggests it isn't quite as accurate as Brettel or Vienot. To validate a simulator, we compare a rainbow grid against the <a href="https://daltonlens.org/colorblindness-simulator">known good models</a>.
+        </p>
+      </aside>
     </main>
   </body>
 </html>
