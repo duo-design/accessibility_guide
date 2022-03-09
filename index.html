@@ -449,22 +449,26 @@
       </aside>
 
       <h2>
-        Data Visualizations
+        Link text
       </h2>
 
       <div>
         <ol>
           <li>
-            There are at least 5 colors that can be used in data visualizations to separate different categories. Support for more colors is good.
-          </li>
-          <li>
-            All categorical colors must have an obviously distinct value, hue and/or saturation for people with full color vision as well as those with deuteranopia, protanopia, and tritanopia. <br> <a href="#distinct-colors">See note on measuring color differences.</a>
-          </li>
-          <li>
-            None of category colors could be confused with the colors of the most common interactive elements (links, primary and secondary buttons, etc) by people with full color vision as well as those with deuteranopia, protanopia, and tritanopia.
+            Link text must have an obviously distinct hue and/or saturation when compared to plain text for people with full color vision as well as those with deuteranopia, protanopia, and tritanopia. <br> <a href="#distinct-colors">See note on measuring color differences.</a>
           </li>
         </ol>
       </div>
+
+      <aside>
+        <h3 id="link-contrast">
+          Link contrast complications
+        </h3>
+
+        <p>
+          While links don't have a maximum contrast ratio, a balance must be struck between having great contrast against the background for readability and having a visible difference from normal body text for people with and without color vision deficiencies. These two requirements are often in conflict, and some hues are especially difficult to get to pass both requirements in light or dark themes.
+        </p>
+      </aside>
 
       <h2>
         Buttons
@@ -492,6 +496,57 @@
         </ol>
       </div>
 
+      <h2>
+        Status indicators
+      </h2>
+
+      <div>
+        <ol>
+          <li>
+            There are at least 4 color families that can be used for status indicators: positive (often green), mild negative (often orange), major negative (often red), and neutral (often blue or gray). These do not have to be specific hues.
+          </li>
+          <li>
+            All status indication colors must have an obviously distinct value, hue and/or saturation for people with full color vision as well as those with deuteranopia, protanopia, and tritanopia. <br> <a href="#distinct-colors">See note on measuring color differences.</a>
+          </li>
+        </ol>
+      </div>
+
+      <aside>
+        <h3 id="why-consider-cvd">
+          Are these color vision deficiency requirements needed?
+        </h3>
+
+        <p>
+          To meet WCAG 2 requirements, color can never be the only indication of something users need to differentiate. There must be text, shape, iconography, texture, or some other non-color indicator. This is great to make things clear for everyone, especially people with severe color vision disabilities.
+        </p>
+
+        <p>
+          However, visible color differences are important for good usability. Noticing anomalies in a table of users or devices is much easier if there is a clear color difference between the status indicators on each row. If we don't design for color vision deficiencies it is easy to make a design where all the status colors look different except for the most positive and negative status colors. That is arguable worse than if all the colors looked the same.
+        </p>
+
+        <p>
+          These color requirements can be met by differentiating hues and/or perceived value. For example, red and green hues can be hard for some people to distinguish, but it can be sufficient to make the red visibly darker than the green or visa versa. Differences in value also help to highlight actionable statuses.
+        </p>
+      </aside>
+
+      <h2>
+        Data Visualizations
+      </h2>
+
+      <div>
+        <ol>
+          <li>
+            There are at least 5 colors that can be used in data visualizations to separate different categories. Support for more colors is good.
+          </li>
+          <li>
+            All categorical colors must have an obviously distinct value, hue and/or saturation for people with full color vision as well as those with deuteranopia, protanopia, and tritanopia. <br> <a href="#distinct-colors">See note on measuring color differences.</a>
+          </li>
+          <li>
+            None of category colors could be confused with the colors of the most common interactive elements (links, primary and secondary buttons, etc) by people with full color vision as well as those with deuteranopia, protanopia, and tritanopia.
+          </li>
+        </ol>
+      </div>
+
       <aside>
         <h4>
           What does "semantically distinct" mean?
@@ -513,28 +568,6 @@
           However, imagine we have a line of buttons next to one another, each with a unique color. Each color might not have a specific semantic meaning, but we do need them to look different for all people. Users would assume different things about the relationship between buttons in a line if they were all different colors versus if only some appeared to have the same color.
         </p>
       </aside>
-      
-      <h2>
-        Link text
-      </h2>
-
-      <div>
-        <ol>
-          <li>
-            Link text must have an obviously distinct hue and/or saturation when compared to plain text for people with full color vision as well as those with deuteranopia, protanopia, and tritanopia. <br> <a href="#distinct-colors">See note on measuring color differences.</a>
-          </li>
-        </ol>
-      </div>
-
-      <aside>
-        <h3 id="link-contrast">
-          Link contrast complications
-        </h3>
-
-        <p>
-          While links don't have a maximum contrast ratio, a balance must be struck between having great contrast against the background for readability and having a visible difference from normal body text for people with and without color vision deficiencies. These two requirements are often in conflict, and some hues are especially difficult to get to pass both requirements in light or dark themes.
-        </p>
-      </aside>
 
       <h2>
         Recommended tools
@@ -546,7 +579,7 @@
 
       <p>
         Every plugin and tool we've tested measures WCAG 2 contrast correctly. WCAG 2 contrast is well established and the math is relatively simple. Use whatever ones you prefer.
-      </p> 
+      </p>
 
       <h3>
         APCA contrast tools
