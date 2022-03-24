@@ -82,22 +82,21 @@
       }
 
       td {
-        background-color: #fee;
+        font-family: monospace;
+        font-size: 21px;
+        font-weight: bold;
       }
 
-      td.minimum,
-      .minimum ~ td {
-        background-color: #def;
+      td .note {
+        font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 14px;
+        display: block;
+        font-weight: normal;
+        margin: 0.5em 0 0 0;
       }
 
-      td.better,
-      .better ~ td {
-        background-color: #cfe;
-      }
-
-      td.limit,
-      .limit ~ td {
-        background-color: #fee;
+      th:first-child {
+        text-align: right;
       }
 
       li {
@@ -216,22 +215,39 @@
         <table>
           <tr>
             <th></th>
-            <th>3:1</th>
-            <th>4.5:1</th>
+            <th>
+              Regular
+              <br>
+              (less than 700)
+            </th>
+            <th>
+              Bold
+              <br>
+              (at least 700)
+            </th>
           </tr>
           <tr>
             <th>
-              Medium and small text
+              Normal text
             </th>
-            <td data-wcag="3:1"></td>
-            <td data-wcag="4.5:1" class="minimum">Minimum</td>
+            <td colspan="2">4.5:1</td>
           </tr>
           <tr>
             <th>
               Large text
             </th>
-            <td data-wcag="3:1" class="minimum">Minimum</td>
-            <td data-wcag="4.5:1"></td>
+            <td>
+              3:1
+              <span class="note">
+                <strong>24px</strong> or larger for regular weight text.
+              </span>
+            </td>
+            <td>
+              3:1
+              <span class="note">
+                <strong>19px</strong> or larger for bold text.
+              </span>
+            </td>
           </tr>
           <tr>
             <th>
@@ -239,8 +255,17 @@
               <br>
               (icons, buttons edges, input borders, etc)
             </th>
-            <td data-wcag="3:1" class="minimum">Minimum</td>
-            <td data-wcag="4.5:1"></td>
+            <td colspan="2">3:1</td>
+          </tr>
+          <tr>
+            <th>
+              Disabled elements
+            </th>
+            <td colspan="2">
+              <span class="note">
+                No WCAG requirement
+              </span>
+            </td>
           </tr>
         </table>
       </div>
@@ -271,153 +296,136 @@
           These are contrast measurements we have to meet or exceed to ensure great legibility. These requirements will also reduce the chances that we need to update our palette if/when WCAG and legal standards start using a better color contrast measurement.
         </p>
 
+        <p>
+          <strong>This is not a complete list of current APCA requirements.</strong> This is a simplified list of key benchmarks a color palette has to be able to meet. A palette robust enough to meet these strict thresholds should have the flexibility we need to make great designs.
+        </p>
+
+        <h4>
+          APCA text minimum contrast
+        </h4>
+
         <table>
           <tr>
             <th></th>
-            <th>Lc 15</th>
-            <th>Lc 30</th>
-            <th>Lc 45</th>
-            <th>Lc 60</th>
-            <th>Lc 75</th>
-            <th>Lc 90</th>
-          </tr>
-
-          <tr>
             <th>
-              Block of plain text
-            </th>
-            <td data-lc="15"></td>
-            <td data-lc="30"></td>
-            <td data-lc="45"></td>
-            <td data-lc="60"></td>
-            <td data-lc="75"></td>
-            <td data-lc="90" class="minimum">Minimum</td>
-          </tr>
-
-          <tr>
-            <th>
-              Shorter text
+              Regular
               <br>
-              (labels, inputs, etc)
+              (less than 700)
             </th>
-            <td data-lc="15"></td>
-            <td data-lc="30"></td>
-            <td data-lc="45"></td>
-            <td data-lc="60"></td>
-            <td data-lc="75" class="minimum">Minimum</td>
-            <td data-lc="90" class="better">Better</td>
-          </tr>
-
-          <tr>
             <th>
-              Headings
-            </th>
-            <td data-lc="15"></td>
-            <td data-lc="30"></td>
-            <td data-lc="45"></td>
-            <td data-lc="60"></td>
-            <td data-lc="75" class="minimum">Minimum</td>
-            <td data-lc="90" class="limit">Do not exceed</td>
-          </tr>
-
-          <tr>
-            <th>
-              Link text
-            </th>
-            <td data-lc="15"></td>
-            <td data-lc="30"></td>
-            <td data-lc="45"></td>
-            <td data-lc="60"></td>
-            <td data-lc="75" class="minimum">Minimum</td>
-            <td data-lc="90" class="limit"><a href="#link-contrast">See note on links</a></td>
-          </tr>
-
-          <tr>
-            <th>
-              Button text
-            </th>
-            <td data-lc="15"></td>
-            <td data-lc="30"></td>
-            <td data-lc="45"></td>
-            <td data-lc="60"></td>
-            <td data-lc="75" class="minimum">Minimum</td>
-            <td data-lc="90" class="better">Better</td>
-          </tr>
-
-          <tr>
-            <th>
-              Data visualizations
-            </th>
-            <td data-lc="15"></td>
-            <td data-lc="30"></td>
-            <td data-lc="45" class="minimum">Minimum</td>
-            <td data-lc="60" class="better">Better</td>
-            <td data-lc="75"></td>
-            <td data-lc="90"></td>
-          </tr>
-
-          <tr>
-            <th>
-              Button and input borders
+              Bold
               <br>
-              <a href="#buttons">See section on buttons</a>
+              (at least 700)
             </th>
-            <td data-lc="15"></td>
-            <td data-lc="30"></td>
-            <td data-lc="45" class="minimum">Minimum</td>
-            <td data-lc="60" class="better">Better</td>
-            <td data-lc="75"></td>
-            <td data-lc="90"></td>
+          </tr>
+
+          <tr>
+            <th>14px or smaller</th>
+            <td>Lc 95</td>
+            <td>Lc 75</td>
+          </tr>
+
+          <tr>
+            <th>16px</th>
+            <td>Lc 85</td>
+            <td>Lc 75</td>
+          </tr>
+
+          <tr>
+            <th>18px</th>
+            <td>Lc 75</td>
+            <td>Lc 65</td>
+          </tr>
+
+          <tr>
+            <th>24px or larger</th>
+            <td>Lc 75</td>
+            <td>Lc 60</td>
           </tr>
 
           <tr>
             <th>
-              Button fill
+              Unimportant text
               <br>
-              <a href="#buttons">See section on buttons</a>
+              (Disabled, copyright statements, etc)
             </th>
-            <td data-lc="15"></td>
-            <td data-lc="30" class="minimum">Minimum</td>
-            <td data-lc="45"></td>
-            <td data-lc="60" class="better">Better</td>
-            <td data-lc="75"></td>
-            <td data-lc="90"></td>
+            <td colspan="2">Lc 30</td>
+          </tr>
+        </table>
+
+        <h4>
+          APCA non-text minimum contrast
+        </h4>
+
+        <table>
+          <tr>
+            <th></th>
+            <th>
+              Outlined
+            </th>
+            <th>
+              Solid
+            </th>
+          </tr>
+
+          <tr>
+            <th>Icons</th>
+            <td>Lc 75</td>
+            <td>Lc 60</td>
+          </tr>
+
+          <tr>
+            <th>Buttons</th>
+            <td colspan="2">
+              Lc 60
+              <span class="note">
+                Contrast of border or fill against the background, not the text inside the button.
+              </span>
+            </td>
+          </tr>
+
+          <tr>
+            <th>Inputs</th>
+            <td colspan="2">
+              Lc 60
+              <span class="note">
+                Contrast of outline or other non-text visuals that make it look like an input, not the text inside the input.
+              </span>
+            </td>
+          </tr>
+
+          <tr>
+            <th>Data Visualizations</th>
+            <td>
+              Lc 75
+              <span class="note">
+                Line graphs, icons in charts, etc.
+              </span>
+            </td>
+            <td>
+              Lc 60
+              <span class="note">
+                Filled in area plots, pie chart slices, etc.
+              </span>
+            </td>
           </tr>
 
           <tr>
             <th>
-              Disabled input, button and placeholder text
+              Sectioning
             </th>
-            <td data-lc="15"></td>
-            <td data-lc="30" class="minimum">Minimum</td>
-            <td data-lc="45" class="limit">No upper limit, but can't be confused with plain text</td>
-            <td data-lc="60"></td>
-            <td data-lc="75"></td>
-            <td data-lc="90"></td>
-          </tr>
-
-          <tr>
-            <th>
-              Section divider lines
-            </th>
-            <td data-lc="15" class="minimum">Minimum</td>
-            <td data-lc="30"></td>
-            <td data-lc="45" class="better">Better</td>
-            <td data-lc="60"></td>
-            <td data-lc="75"></td>
-            <td data-lc="90"></td>
-          </tr>
-
-          <tr>
-            <th>
-              Elevations
-            </th>
-            <td data-lc="15" class="minimum">Minimum</td>
-            <td data-lc="30" class="better">Better</td>
-            <td data-lc="45"></td>
-            <td data-lc="60"></td>
-            <td data-lc="75"></td>
-            <td data-lc="90"></td>
+            <td>
+              Lc 30
+              <span class="note">
+                Dividing lines between sections.
+              </span>
+            </td>
+            <td>
+              Lc 15
+              <span class="note">
+                Contrast between background colors used to indicate sections.
+              </span>
+            </td>
           </tr>
         </table>
       </div>
@@ -432,19 +440,14 @@
         </p>
 
         <h4>
-          Why these components and values?
+          Why these values?
         </h4>
 
         <p>
-          The components listed are illustrative of the most common use cases and those that past designs have struggled with the most. Some of values listed are the higher levels recommended for the best readability, rather than the bare minimums. Long term it is easier to create a color palette now that supports the highest levels of contrast than it is to create a palette that barely passes the minimums and needs to be extend in the future.
+          We discussed what the most common text sizes are in current designs as well as future plans for text accessibility requirements. Based on that, we came up with this reduced set of goals. These requirements may be stricter than what will be required of future designs.
         </p>
-
-        <h4>
-          Doesn't APCA include size/weight requirements?
-        </h4>
-
         <p>
-          Yes, APCA's full recommendations also factor element size/weight. Our requirements factor those in. If a color palette can pass these contrast levels for the given components, we are confident that the palette has the flexibility we need. Rules to ensure components have the right size/weight to pass APCA's full recommendation can come later.
+          However, if a color palette can support all of these use cases, we can be confident that it can be used to create very legible designs that meet the highest standards. Better to have a color palette capable of exceeding future requirements than one that only barely meets today's requirements.
         </p>
       </aside>
 
